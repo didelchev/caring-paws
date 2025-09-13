@@ -1,0 +1,47 @@
+.featured-section{
+    text-align: center;
+    background-color: #eeeeee;
+    padding: 2em;
+}
+
+.featured-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 4em;
+    gap: 2em ;
+}
+.featured-pet{
+    width: 400px;
+    border-radius: 0.7em;
+    text-align: left;
+    transition: all .3s ease;
+    background-color: #fff;
+    
+
+}
+
+.featured-pet .thumbnail-img img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit:cover;
+    border-radius: 1.5em;
+    padding: 1em;
+    
+}
+
+.featured-pet .pet-details{
+    padding:0 1.2em 1em;
+    color: #474747
+}
+
+.featured-pet .pet-details h3 {
+    font-size: 1.3em;
+}
+
+.featured-pet:hover{
+    cursor: pointer;
+    box-shadow: 0 0 50px 0 rgba(19,19,28,.12);
+    transform: scale(1.05);
+
+}

@@ -1,0 +1,45 @@
+.card-container{
+    display: block;
+    width: 300px;
+    height: 350px;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+    transition: .3s ease-in-out;
+
+}
+
+.card-container img{
+    display: block;
+    border-radius: 0.5em;
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+.card-container .pet-details span{
+  color: #106a2e;
+}
+
+.pet-details{
+    padding: 0.7em;
+}
+.pet-details h3 {
+    margin: 0 0 3px 0;
+    color: #1db750;
+    font-weight: 500;
+  }
+
+.pet-details p {
+    margin: 2px 0;
+  }
+
+  .pet-details > p:last-child span {
+    margin-right: 5px;
+  }
+
+  .card-container:hover{
+    transform: scale(1.05);
+  }

@@ -1,0 +1,64 @@
+html{
+    background-color: #fafcff;
+}
+
+.catalog-page{
+    padding: 3em;
+    /* margin-top: 5em; */
+    display:  grid;
+    grid-template-columns: 320px 320px 320px;
+    grid-template-rows: 1fr;
+    column-gap: 40px;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card-container{
+    display: block;
+    width: 300px;
+    height: 350px;
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+}
+
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8em auto;
+    margin-bottom: 0;
+    width: max-content;
+    outline: 1px ridge grey;
+    border-radius: 3em;
+    padding: 0 1em;
+}
+
+.search .icon{
+margin-left: 1em;
+color: #1db750;
+}
+
+.search input{
+    display: block;
+    width: calc(3* 300px + 2*52px);
+    height: 4em;
+    padding: 1em;
+    color: grey;
+    font-size: 1.2em;
+    font-style: italic;
+    border-style: none;
+}
+
+
+.search input:hover{
+    outline-color: #1db750;
+}
+
+
+.search input:focus{
+    outline: none;
+}
