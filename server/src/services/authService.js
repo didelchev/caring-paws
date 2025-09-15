@@ -1,6 +1,8 @@
 import User from "../models/User.js"
+import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
-const register = async(email, username, password) => {
+export const register = async(email, username, password) => {
     const userCount = await User.countDocuments({ email })
 
     if (userCount > 0){
@@ -10,3 +12,30 @@ const register = async(email, username, password) => {
     return User.create({email, username, password})
 }
 
+export const login = async(email, password ) => { 
+    const user = await User.findOne({email})
+    const JWT_SECRET = process.env.JWT_SECRET
+
+    if(!user){
+        throw new Error("User does not exists")
+    }
+
+    const isValid = await bcrypt.compare(password, user.password)
+    
+    if(!isValid){
+        throw new Error("Password does not match")
+    }
+
+    const payload = {
+        _id: user.id,
+        email
+    }
+
+    const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "2h"})
+
+    return {
+        _id: user.id,
+        email: user.email,
+        accessToken: token
+    }
+}
