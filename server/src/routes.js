@@ -1,13 +1,13 @@
 import { Router } from "express";
 import homeController from "./controllers/homeController.js";
-import catalogController from "./controllers/catalogController.js";
 import userController from "./controllers/userController.js";
+import dogController from "./controllers/dogController.js";
 
 const routes = Router();
 
 routes.use('/', homeController)
 
-routes.use('/catalog', catalogController)
+routes.use('/catalog', dogController)
 
 routes.use('/auth', userController)
 
