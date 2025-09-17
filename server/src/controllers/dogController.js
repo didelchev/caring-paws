@@ -30,6 +30,17 @@ dogController.post("/", async (req, res) => {
     }
 })
 
+dogController.delete("/:dogId", async (req, res) => {
+    try{
+        await dogService.delete(req.params.dogId)
+        
+        res.status(204).end()
+    }
+    catch(err){
+        res.status(400).json({message: getErrorMessage(err)})
+    }
+})
+
 
 
 export default dogController
