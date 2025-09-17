@@ -1,5 +1,6 @@
 import { Router } from "express";
 import dogService from "../services/dogService.js";
+import { getErrorMessage } from "../utils/errorUtils.js";
 
 
 const dogController = Router();
@@ -15,6 +16,18 @@ dogController.get('/:dogId', async (req, res) => {
     const dog  = await dogService.getOne(req.params.dogId)
 
     res.json(dog)
+})
+
+dogController.post("/", async (req, res) => {
+    const userId = req.user._id;
+    const dogData = req.body;
+
+    try {
+       const dog =  await dogService.create(dogData, userId)
+        res.json(dog)
+    } catch (err) {
+        res.status(400).json({ message: getErrorMessage(err)})
+    }
 })
 
 
