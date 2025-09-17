@@ -51,7 +51,7 @@ dogController.put("/:dogId", async(req, res) => {
 
         res.json(updatedDog)
     } catch (err) {
-        res.status(400).json({message: getErrorMessage(err)})
+        res.status(400).json({ message: getErrorMessage(err) })
     }
 })
 

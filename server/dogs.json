@@ -1,0 +1,122 @@
+[
+  {
+    "name": "Molly",
+    "imageUrl": "https://cdn2.thedogapi.com/images/rVXxoWhCR.jpg",
+    "age": "3 years old",
+    "breed": "Border Collie",
+    "location": "Plovdiv",
+    "color": "Black and White",
+    "sex": "Female",
+    "size": "Medium (13-20 kg)"
+  },
+  {
+    "name": "Tucker",
+    "imageUrl": "https://cdn2.thedogapi.com/images/HJ7Pzg5EQ_1280.jpg",
+    "age": "2 years old",
+    "breed": "Golden Retriever",
+    "location": "Sofia",
+    "color": "Golden",
+    "sex": "Male",
+    "size": "Large (29-34 kg)"
+  },
+  {
+    "name": "Max",
+    "imageUrl": "https://cdn2.thedogapi.com/images/qwqPTppkA.jpg",
+    "age": "4 years old",
+    "breed": "Shiba Inu",
+    "location": "Varna",
+    "color": "Red",
+    "sex": "Male",
+    "size": "Medium (8-10 kg)"
+  },
+  {
+    "name": "Charlie",
+    "imageUrl": "https://cdn2.thedogapi.com/images/36h5QYitP.jpg",
+    "age": "8 years old",
+    "breed": "Saint Bernard",
+    "location": "Ruse",
+    "color": "Brown and white",
+    "sex": "Male",
+    "size": "Giant (54-82 kg)"
+  },
+  {
+    "name": "Oscar",
+    "imageUrl": "https://cdn2.thedogapi.com/images/VWhafa0Av.jpg",
+    "age": "2 years old",
+    "breed": "Bull Terrier",
+    "location": "Dobrich",
+    "color": "Light brown and white",
+    "sex": "Male",
+    "size": "Medium (25-30 kg)"
+  },
+  {
+    "name": "Lola",
+    "imageUrl": "https://cdn2.thedogapi.com/images/5TW4CCc9c.jpg",
+    "age": "1 years old",
+    "breed": "Cocker Spaniel",
+    "location": "Burgas",
+    "color": "Golden",
+    "sex": "Female",
+    "size": "Medium (11-16kg)"
+  },
+  {
+    "name": "Buddy",
+    "imageUrl": "https://cdn2.thedogapi.com/images/By-hGecVX_1280.jpg",
+    "age": "3 years old",
+    "breed": "Irish Terrier",
+    "location": "Vidin",
+    "color": "Red Wheaten",
+    "sex": "Male",
+    "size": "Medium (13-16kg)"
+  },
+  {
+    "name": "Rocky",
+    "imageUrl": "https://cdn2.thedogapi.com/images/HyL3bl94Q_1280.jpg",
+    "age": "2 years old",
+    "breed": "Doberman Pinscher",
+    "location": "Sliven",
+    "color": "Black and Rust",
+    "sex": "Male",
+    "size": "Large"
+  },
+  {
+    "name": "Rex",
+    "imageUrl": "https://cdn2.thedogapi.com/images/r15m-lc4m_1280.jpg",
+    "age": "5 years old",
+    "breed": "Cane Corso",
+    "location": "Veliko Turnovo",
+    "color": "Brindle",
+    "sex": "Male",
+    "size": "Large (45-50kg)"
+  },
+  {
+    "name": "Toby",
+    "imageUrl": "https://cdn2.thedogapi.com/images/S1fFlx5Em_1280.jpg",
+    "age": "2 years old",
+    "breed": "Bernese Mountain Dog",
+    "location": "Stara Zagora",
+    "color": "Black, rust and white",
+    "sex": "Male",
+    "size": "Large (32-52kg)"
+  },
+  {
+    "name": "Duke",
+    "imageUrl": "https://cdn2.thedogapi.com/images/B1ruWl94Q_1280.jpg",
+    "age": "3 years old",
+    "breed": "Shar Pei",
+    "location": "Sofia",
+    "color": "Lilac",
+    "sex": "Male",
+    "size": "Medium (18-25kg)"
+  },
+  {
+    "name": "Nala",
+    "imageUrl": "https://cdn2.thedogapi.com/images/FsK9WepDe.jpg",
+    "age": "2 years old",
+    "breed": "Beagle",
+    "location": "Plovdiv",
+    "color": "Red and white",
+    "sex": "Female",
+    "size": "Medium (10-15kg)"
+  }
+]
