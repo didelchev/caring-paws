@@ -41,6 +41,20 @@ dogController.delete("/:dogId", async (req, res) => {
     }
 })
 
+dogController.put("/:dogId", async(req, res) => {
+    const dogData = req.body;
+    const dogId = req.params.dogId
+
+
+    try {
+        const updatedDog = await dogService.update(dogId, dogData)
+
+        res.json(updatedDog)
+    } catch (err) {
+        res.status(400).json({message: getErrorMessage(err)})
+    }
+})
+
 
 
 export default dogController
