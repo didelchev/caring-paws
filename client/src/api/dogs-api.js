@@ -1,7 +1,8 @@
 import * as request from "./requester";
 
 
-const BASE_URL = "http://localhost:3030/data/dogs"
+// const BASE_URL = "http://localhost:3030/data/dogs"
+const BASE_URL = "http://localhost:5000/catalog"
 
 export const getAll =  async () => { 
     const result = await request.get(BASE_URL);
