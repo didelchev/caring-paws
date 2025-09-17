@@ -4,6 +4,11 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import 'dotenv/config'
 
+const dbUri = process.env.MONGO_URI
+
+mongoose.connect(dbUri, { dbName: 'paws' })
+    .then(() => console.log("DB Connected successfully !"))
+    .catch((err) => console.log(`DB failed to connect: ${err}`))
 
 
 const app = express();
@@ -13,13 +18,6 @@ const PORT = 5000;
 app.use(cors())
 
 app.use(express.json())
-
-const dbUri = process.env.MONGO_URI
-
-
-mongoose.connect(dbUri, { dbName: 'paws' })
-    .then(() => console.log("DB Connected successfully !"))
-    .catch((err) => console.log(`DB failed to connect: ${err}`))
 
 app.use(routes)
 
