@@ -1,6 +1,7 @@
 import * as request from './requester';
 
-const BASE_URL = "http://localhost:3030/users"
+// const BASE_URL = "http://localhost:3030/users"
+const BASE_URL = "http://localhost:5000/auth"
 
 
 export const login = async (email, password) => {
