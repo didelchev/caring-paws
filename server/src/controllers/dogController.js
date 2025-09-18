@@ -22,6 +22,8 @@ dogController.post("/", async (req, res) => {
     const userId = req.user._id;
     const dogData = req.body;
 
+    console.log(userId, dogData)
+
     try {
        const dog =  await dogService.create(dogData, userId)
         res.json(dog)

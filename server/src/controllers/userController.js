@@ -28,7 +28,7 @@ userController.post('/login', async (req, res) => {
         res.json(result);
         
     } catch (err) {
-        res.status(400).json({message: getErrorMessage(err)})
+        res.status(400).json({ message: getErrorMessage(err) })
     }
 
     

@@ -25,6 +25,7 @@ export default function PostPet(){
   const createDog = useCreateDog();
 
   const createHandler = async (values) => {
+    console.log(values)
     try {
       
       const { _id: dogId }= await createDog(values);
@@ -32,6 +33,7 @@ export default function PostPet(){
       navigate(`/petcatalog/${dogId}`)
 
     } catch (error) {
+
       console.log(error.message)
     }
     
