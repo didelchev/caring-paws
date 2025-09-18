@@ -14,14 +14,8 @@ const dogSchema = new Schema({
     required: [true, "Color is required !"],
   },
   age: {
-    type: Number,
-    required: [true, "Age is required !"],
-    validate: {
-      validator: function (value) {
-        return value > 0;
-      },
-      message: "Age must be a positive number !",
-    },
+    type: String,
+    required: [true, "Age is required !"]
   },
   image: {
     type: String,
