@@ -40,26 +40,3 @@ export default function Header() {
   );
 }
 
-/* <span className="search-icon">
-            <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              size="4x"
-              
-            />
-            </span> */
-
-//         <div className="header">
-//   <div className="header-content">
-//     <h1>Find your furever friend</h1>
-//     <div className="btn-container">
-//       <a href=""></a>
-//       <button className="cta-button">
-//
-//       </button>
-//       <div className="button-text">
-//         <h4>I want to adopt a pet</h4>
-//       </div>
-//       <button className="cta-button">I want to rehome my pet</button>
-//     </div>
-//   </div>
-// </div>

@@ -53,6 +53,7 @@ export function useGetOneDogs(id) {
   useEffect(() => {
     const getDog = async () => {
       const result = await dogsAPI.getOne(id);
+      console.log(result.age)
       setDog(result);
     };
     getDog();
