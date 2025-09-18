@@ -7,7 +7,8 @@
     "location": "Plovdiv",
     "color": "Black and White",
     "sex": "Female",
-    "size": "Medium (13-20 kg)"
+    "size": "Medium (13-20 kg)",
+    "description": "Molly is an energetic and intelligent Border Collie who loves to play and learn new tricks. She enjoys being active and is very affectionate with people."
   },
   {
     "name": "Tucker",
@@ -17,7 +18,8 @@
     "location": "Sofia",
     "color": "Golden",
     "sex": "Male",
-    "size": "Large (29-34 kg)"
+    "size": "Large (29-34 kg)",
+    "description": "Tucker is a friendly and loyal Golden Retriever who enjoys outdoor adventures and spending time with his family. He’s gentle and great with kids."
   },
   {
     "name": "Max",
@@ -27,7 +29,8 @@
     "location": "Varna",
     "color": "Red",
     "sex": "Male",
-    "size": "Medium (8-10 kg)"
+    "size": "Medium (8-10 kg)",
+    "description": "Max is a spirited Shiba Inu with a bold personality. He’s independent, alert, and loves exploring while still being affectionate with his favorite people."
   },
   {
     "name": "Charlie",
@@ -37,7 +40,8 @@
     "location": "Ruse",
     "color": "Brown and white",
     "sex": "Male",
-    "size": "Giant (54-82 kg)"
+    "size": "Giant (54-82 kg)",
+    "description": "Charlie is a gentle giant with a calm and loving nature. Despite his size, he is patient, affectionate, and enjoys relaxing with his family."
   },
   {
     "name": "Oscar",
@@ -47,7 +51,8 @@
     "location": "Dobrich",
     "color": "Light brown and white",
     "sex": "Male",
-    "size": "Medium (25-30 kg)"
+    "size": "Medium (25-30 kg)",
+    "description": "Oscar is a playful and strong-willed Bull Terrier who loves being the center of attention. He’s energetic, curious, and thrives with an active lifestyle."
   },
   {
     "name": "Lola",
@@ -57,7 +62,8 @@
     "location": "Burgas",
     "color": "Golden",
     "sex": "Female",
-    "size": "Medium (11-16kg)"
+    "size": "Medium (11-16kg)",
+    "description": "Lola is a cheerful young Cocker Spaniel full of energy and charm. She’s affectionate, loves to play, and is always eager to please."
   },
   {
     "name": "Buddy",
@@ -67,7 +73,8 @@
     "location": "Vidin",
     "color": "Red Wheaten",
     "sex": "Male",
-    "size": "Medium (13-16kg)"
+    "size": "Medium (13-16kg)",
+    "description": "Buddy is a lively Irish Terrier with a big heart. Brave and full of spirit, he’s both a loyal companion and a fun-loving adventurer."
   },
   {
     "name": "Rocky",
@@ -77,7 +84,8 @@
     "location": "Sliven",
     "color": "Black and Rust",
     "sex": "Male",
-    "size": "Large"
+    "size": "Large",
+    "description": "Rocky is a strong and alert Doberman Pinscher who is protective yet affectionate. He’s intelligent, loyal, and thrives with good training and exercise."
   },
   {
     "name": "Rex",
@@ -87,7 +95,8 @@
     "location": "Veliko Turnovo",
     "color": "Brindle",
     "sex": "Male",
-    "size": "Large (45-50kg)"
+    "size": "Large (45-50kg)",
+    "description": "Rex is a powerful Cane Corso with a protective nature. Confident and loyal, he makes a devoted guardian while being gentle with his loved ones."
   },
   {
     "name": "Toby",
@@ -97,7 +106,8 @@
     "location": "Stara Zagora",
     "color": "Black, rust and white",
     "sex": "Male",
-    "size": "Large (32-52kg)"
+    "size": "Large (32-52kg)",
+    "description": "Toby is a sweet-natured Bernese Mountain Dog who adores companionship. He’s gentle, affectionate, and happiest when surrounded by family."
   },
   {
     "name": "Duke",
@@ -107,7 +117,8 @@
     "location": "Sofia",
     "color": "Lilac",
     "sex": "Male",
-    "size": "Medium (18-25kg)"
+    "size": "Medium (18-25kg)",
+    "description": "Duke is a calm and loyal Shar Pei with a distinctive look. He’s dignified, affectionate with his family, and enjoys quiet companionship."
   },
   {
     "name": "Nala",
@@ -117,6 +128,7 @@
     "location": "Plovdiv",
     "color": "Red and white",
     "sex": "Female",
-    "size": "Medium (10-15kg)"
+    "size": "Medium (10-15kg)",
+    "description": "Nala is a curious and playful Beagle with a keen nose for adventure. She’s friendly, energetic, and loves exploring her surroundings."
   }
 ]
