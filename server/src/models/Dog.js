@@ -1,7 +1,7 @@
 import { model, Schema } from "mongoose";
 
 const dogSchema = new Schema({
-  dogName: {
+  name: {
     type: String,
     required: [true, "Dog name is required !"],
   },
@@ -17,7 +17,7 @@ const dogSchema = new Schema({
     type: String,
     required: [true, "Age is required !"]
   },
-  image: {
+  imageUrl: {
     type: String,
     required: [true, "Image  is required !"],
   },
