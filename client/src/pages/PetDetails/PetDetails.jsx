@@ -13,9 +13,10 @@ export default function PetDetails() {
   const [dog, setDog] = useGetOneDogs(id)
   const navigate = useNavigate();
   const {userId, isAuthenticated} = useAuthContext();
-
-
+console.log(userId)
+  console.log(dog)
   const isOwner = userId === dog._ownerId;
+  console.log(isOwner)
 
   const dogDeletHandler = async () => {
     const isConfirmed = confirm(`Are you sure you want to delete ${dog.name} ?`)
