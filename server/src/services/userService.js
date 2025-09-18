@@ -4,14 +4,14 @@ import jwt from 'jsonwebtoken';
 import User from "../models/User.js";
 
 const userService = {
-    async register(email, password) {
+    async register(email,username, password) {
         const user = await User.findOne({ email });
 
         if (user) {
             throw new Error('User already exists');
         }
 
-        const createdUser = await User.create({ email, password });
+        const createdUser = await User.create({ email,username, password });
 
         return generateResponse(createdUser);
     },
