@@ -27,6 +27,6 @@ userSchema.pre("save", async function(){
     this.password = hash
 })
 
-const User = model(User, userSchema)
+const User = model("User", userSchema)
 
 export default User
