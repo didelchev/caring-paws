@@ -13,8 +13,9 @@ export default function PetDetails() {
   const [dog, setDog] = useGetOneDogs(id)
   const navigate = useNavigate();
   const {userId, isAuthenticated} = useAuthContext();
-console.log(userId)
-  console.log(dog)
+  
+  console.log(userId)
+  // console.log(dog)
   const isOwner = userId === dog._ownerId;
   console.log(isOwner)
 
