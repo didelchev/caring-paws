@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, Types } from "mongoose";
 
 const dogSchema = new Schema({
   name: {
@@ -40,6 +40,10 @@ const dogSchema = new Schema({
   description: {
     type: String,
   },
+  _ownerId: {
+     type: Types.ObjectId,
+     ref: 'User'
+  }
 });
 
 
