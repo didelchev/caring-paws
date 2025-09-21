@@ -30,7 +30,6 @@ const userService = {
         return generateResponse(user);
     },
     logout() {
-        // TODO: Invalidate token
         
         return true;
     }
@@ -43,6 +42,7 @@ function generateResponse(user) {
     };
 
     const token = jwt.sign(payload, 'MYSECRET', { expiresIn: '2h' });
+    //TODO: check secret
 
     return {
         _id: user._id,
