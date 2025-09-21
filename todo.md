@@ -1,4 +1,3 @@
-[] Logout on backend
 
 [] Check error handling
 
