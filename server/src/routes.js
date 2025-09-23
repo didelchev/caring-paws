@@ -7,7 +7,7 @@ const routes = Router();
 
 routes.use('/', homeController)
 
-routes.use('/catalog', dogController)
+routes.use('/petcatalog', dogController)
 
 routes.use('/auth', userController)
 
