@@ -2,7 +2,7 @@ import * as request from "./requester";
 
 
 // const BASE_URL = "http://localhost:5000/catalog"
-const BASE_URL = "https://carring-paws.onrender.com/catalog"
+const BASE_URL = "https://carring-paws.onrender.com/petcatalog"
 
 export const getAll =  async () => { 
     const result = await request.get(BASE_URL);
