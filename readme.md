@@ -9,11 +9,10 @@ A web application dedicated to connecting adorable, adoptable dogs with loving h
 
 ##  Features
 
-* **🔍 Detailed Search & Filtering:** Users can easily find their perfect companion by filtering by breed, age, size, location, and personality.
-* **🐶 Dog Profiles:** Each dog has a dedicated profile with multiple photos, a biography, medical history, and personality traits.
-* **📝 Application Management:** Streamlined system for users to submit adoption applications and for administrators to track and manage them.
+* **🔍 Detailed Search & Filtering:** Users can easily find their perfect companion by searchin by breed, age, size and location.
+* **🐶 Dog Profiles:** Each dog has a dedicated profile with photos, a biography, and description.
 * **👤 User Authentication:** Secure sign-up and login for adopters and administrative accounts.
-* **📱 Responsive Design:** A beautiful and functional interface built with React that works seamlessly across all devices.
+
 
 ---
 
@@ -91,5 +90,10 @@ You'll need the following installed:
        npm start
        ```
     The React application will open in your browser (typically `http://localhost:3000`), using a proxy configuration to communicate with your local Express server (usually on port 5000).
+---
+##  Future Improvements
 
 
+#### 1. User Dashboard:
+#### 2. Responsive Design: Mobile Optimization 
+#### 3. Comments on Dogs
