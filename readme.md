@@ -2,6 +2,9 @@
 
 A web application dedicated to connecting adorable, adoptable dogs with loving homes. We strive to make the adoption process transparent, easy, and joyful for both the dogs and their new families.
 
+
+![Project Screenshot](client/public/home-page.png)
+
 ---
 
 ##  Features
