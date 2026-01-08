@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const initialValues = { email: "", password: "" };
 
 const LoginForm = () => {
+  const [error, setError] = useState('')
   const login = useLogin();
 
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const LoginForm = () => {
       await login(email, password);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(error.message)
     }
   };
   const { values, changeHandler, submitHandler } = useForm(
@@ -63,6 +64,11 @@ const LoginForm = () => {
             <input type="checkbox" id="remember" />
             <label htmlFor="remember">Remember me</label>
           </div>
+          {error &&  (
+            <p className="error-msg">
+            <span>{error}</span>
+          </p>
+          )}
           <button type="submit">Login</button>
           <div className="form-footer">
             <a href="#">Forgot Password?</a>
