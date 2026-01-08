@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const initialValues = { email: "", password: "" };
 
 const LoginForm = () => {
-  const [error, setError] = useState('')
+  const [error, setError] = useState();
   const login = useLogin();
 
   const navigate = useNavigate();
