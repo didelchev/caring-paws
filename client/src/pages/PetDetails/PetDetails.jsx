@@ -1,109 +1,221 @@
-import React, {useState, useEffect} from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
-import dogsAPI from "../../api/dogs-api"
-import { useGetOneDogs } from '../../hooks/useDogs';
+// import React, {useState, useEffect} from 'react';
+// import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+// import dogsAPI from "../../api/dogs-api"
+// import { useGetOneDogs } from '../../hooks/useDogs';
 
-import './PetDetails.css'
-import Footer from '../../components/Footer/Footer';
-import { useAuthContext } from '../../contexts/AuthContext';
+// import './PetDetails.css'
+// import Footer from '../../components/Footer/Footer';
+// import { useAuthContext } from '../../contexts/AuthContext';
 
+
+// export default function PetDetails() {
+//   const { id } = useParams();
+//   const [dog, setDog] = useGetOneDogs(id)
+//   const navigate = useNavigate();
+//   const {userId, isAuthenticated} = useAuthContext();
+  
+//   console.log(userId)
+//   // console.log(dog)
+//   const isOwner = userId === dog._ownerId;
+//   console.log(isOwner)
+
+//   const dogDeletHandler = async () => {
+//     const isConfirmed = confirm(`Are you sure you want to delete ${dog.name} ?`)
+
+//      if(!isConfirmed){
+//       return
+//      }
+
+//     try {
+//       await dogsAPI.remove(id);
+//       navigate("/")
+//     } catch (error) {
+//       console.log(error.message)
+//     }
+//   }
+
+//   return (
+//     <div className="dog-details-page">
+//       <div className="dog-card">
+//         <div className="border">
+//           <div className="image-container">
+//             <img
+//               src={dog.imageUrl}
+//               className="blur"
+//             />
+//             <img
+//               src={dog.imageUrl}
+//               alt={dog.name}
+//             />
+//           </div>
+//         </div>
+//         <div className="dog-info">
+//           <h2>{dog.name}</h2>
+//           <div className="about">
+//             <h3>About</h3>
+//             <div className="list-container">
+//               <div className="list-item">
+//                 <div>Breed:</div>
+//                 <div>{dog.breed}</div>
+//               </div>
+//               <div className="list-item">
+//                 <div>Color: </div>
+//                 <div>{dog.color}</div>
+//               </div>
+//               <div className="list-item">
+//                 <div>Age: </div>
+//                 <div>{dog.age}</div>
+//               </div>
+//               <div className="list-item">
+//                 <div>Sex: </div>
+//                 <div>{dog.sex}</div>
+//               </div>
+//               <div className="list-item">
+//                 <div>Size: </div>
+//                 <div>{dog.size}</div>
+//               </div>
+//               <div className="list-item">
+//                 <div>Location: </div>
+//                 <div>{dog.location}</div>
+//               </div>
+//               <div className="list-item">
+//                 <div>Phone: </div>
+//                 <div>{dog.phone}</div>
+//               </div>
+//             </div>
+//           </div>
+
+//         {isOwner && isAuthenticated &&(<div className="buttons">
+//           <Link to={`/petcatalog/${id}/edit`}><button>Edit</button></Link>
+//           <button onClick={dogDeletHandler}>Delete</button>
+//         </div>)}
+
+//         </div>
+//       </div>
+//       <div className="dog-description">
+//             <h2>Description</h2>
+//             <p>{dog.description}</p>
+//         </div>
+//     </div>
+    
+//   )
+// }
+
+
+
+import React from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import dogsAPI from "../../api/dogs-api";
+import { useGetOneDogs } from "../../hooks/useDogs";
+import { useAuthContext } from "../../contexts/AuthContext";
+import Loading from "../../components/Loading/Loading";
+import Comments from "../../components/Comments/Comments";
+import FavoriteButton from "../../components/Favorites/FavoriteButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import "./PetDetails.css";
 
 export default function PetDetails() {
   const { id } = useParams();
-  const [dog, setDog] = useGetOneDogs(id)
+  const [dog] = useGetOneDogs(id);
   const navigate = useNavigate();
-  const {userId, isAuthenticated} = useAuthContext();
-  
-  console.log(userId)
-  // console.log(dog)
-  const isOwner = userId === dog._ownerId;
-  console.log(isOwner)
+  const { isAuthenticated, userId } = useAuthContext();
 
-  const dogDeletHandler = async () => {
-    const isConfirmed = confirm(`Are you sure you want to delete ${dog.name} ?`)
+  if (!dog) return <Loading />;
 
-     if(!isConfirmed){
-      return
-     }
+  const isOwner = userId === dog._ownerId?.toString();
 
+  const dogDeleteHandler = async () => {
+    const isConfirmed = confirm(`Are you sure you want to remove ${dog.name}?`);
+    if (!isConfirmed) return;
     try {
       await dogsAPI.remove(id);
-      navigate("/")
+      navigate("/petcatalog");
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
-  }
+  };
 
   return (
-    <div className="dog-details-page">
-      <div className="dog-card">
-        <div className="border">
-          <div className="image-container">
-            <img
-              src={dog.imageUrl}
-              className="blur"
-            />
-            <img
-              src={dog.imageUrl}
-              alt={dog.name}
-            />
-          </div>
+    <div className="pet-details-page">
+      <div className="pet-details-hero">
+        {/* Image */}
+        <div className="pet-details-image-wrap">
+          <div
+            className="pet-details-blur-bg"
+            style={{ backgroundImage: `url(${dog.imageUrl})` }}
+          />
+          <img src={dog.imageUrl} alt={dog.name} className="pet-details-img" />
         </div>
-        <div className="dog-info">
-          <h2>{dog.name}</h2>
-          <div className="about">
-            <h3>About</h3>
-            <div className="list-container">
-              <div className="list-item">
-                <div>Breed:</div>
-                <div>{dog.breed}</div>
-              </div>
-              <div className="list-item">
-                <div>Color: </div>
-                <div>{dog.color}</div>
-              </div>
-              <div className="list-item">
-                <div>Age: </div>
-                <div>{dog.age}</div>
-              </div>
-              <div className="list-item">
-                <div>Sex: </div>
-                <div>{dog.sex}</div>
-              </div>
-              <div className="list-item">
-                <div>Size: </div>
-                <div>{dog.size}</div>
-              </div>
-              <div className="list-item">
-                <div>Location: </div>
-                <div>{dog.location}</div>
-              </div>
-              <div className="list-item">
-                <div>Phone: </div>
-                <div>{dog.phone}</div>
-              </div>
-            </div>
+
+        {/* Info panel */}
+        <div className="pet-details-info">
+          <div className="pet-details-top-row">
+            <h1 className="pet-details-name">{dog.name}</h1>
+            <FavoriteButton dogId={id} />
           </div>
 
-        {isOwner && isAuthenticated &&(<div className="buttons">
-          <Link to={`/petcatalog/${id}/edit`}><button>Edit</button></Link>
-          <button onClick={dogDeletHandler}>Delete</button>
-        </div>)}
+          <p className="pet-details-location">
+            <FontAwesomeIcon icon={faLocationDot} />
+            &nbsp;{dog.location}
+          </p>
 
+          <div className="pet-details-tags">
+            <span className="pet-tag">{dog.breed}</span>
+            <span className="pet-tag">{dog.age}</span>
+            <span className="pet-tag">{dog.sex}</span>
+            <span className="pet-tag">{dog.size}</span>
+            <span className="pet-tag">{dog.color}</span>
+          </div>
+
+          <div className="pet-details-attributes">
+            {[
+              { label: "Breed", value: dog.breed },
+              { label: "Age", value: dog.age },
+              { label: "Sex", value: dog.sex },
+              { label: "Size", value: dog.size },
+              { label: "Color", value: dog.color },
+              { label: "Location", value: dog.location },
+              { label: "Contact", value: dog.phone },
+            ].map(({ label, value }) =>
+              value ? (
+                <div key={label} className="pet-attr-row">
+                  <span className="pet-attr-label">{label}</span>
+                  <span className="pet-attr-value">{value}</span>
+                </div>
+              ) : null
+            )}
+          </div>
+
+          {isOwner && isAuthenticated && (
+            <div className="pet-details-actions">
+              <Link to={`/petcatalog/${id}/edit`} className="pet-edit-btn">
+                ✏️ Edit
+              </Link>
+              <button className="pet-delete-btn" onClick={dogDeleteHandler}>
+                🗑️ Delete
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <div className="dog-description">
-            <h2>Description</h2>
-            <p>{dog.description}</p>
+
+      {/* Description */}
+      {dog.description && (
+        <div className="pet-description-section">
+          <h2>About {dog.name}</h2>
+          <p>{dog.description}</p>
         </div>
+      )}
+
+      {/* Comments */}
+      <Comments dogId={id} />
+      
+
+      <div style={{ height: "3em" }} />
     </div>
-    
-  )
+  );
 }
-
-
-
-
 
 
 

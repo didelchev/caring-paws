@@ -1,143 +1,200 @@
-.dog-details-page{
-    padding-top: 7em;
-    display: block;
-    width: 100vw;
-    height: 100vh;
-    background-color: #eee;
+.pet-details-page {
+  min-height: 100vh;
+  background: #f7f9f7;
+  padding-top: 72px;
 }
 
-.dog-card{
-    display: flex;
-    width: 1200px;
-    height: 550px;
-    padding: 2em;
-    margin: 0 auto;
-    justify-content: space-evenly;
-    /* border: 1px solid black; */
-}
-.dog-card .border{
-    display: flex;
-    padding: 0.6em;
-    overflow: hidden;
-    border-radius: 0.5em;
-    background-color: #fff;
-}
-.dog-card .image-container {
-    display: block;
-    width: 500px;
-    position: relative;
-    overflow: hidden;
-    
-}
-.dog-card .image-container .blur{
-    position: absolute;
-    inset: 0px;
-    box-sizing: border-box;
-    padding: 0px;
-    border: medium;
-    margin: auto;
-    display: block;
-    width: 0px;
-    height: 0px;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    filter: blur(15px);
-    
-    
-
-}
-.dog-card .image-container img{
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+/* Hero section */
+.pet-details-hero {
+  max-width: 1100px;
+  margin: 2em auto;
+  padding: 0 1.5em;
+  display: flex;
+  gap: 2.5em;
+  align-items: flex-start;
 }
 
-
-.dog-card .dog-info{
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    padding: 2em;
-    border-radius: 1em;
-    justify-content: flex-start;
-    background-color: #fff;
-
-}
-
-.dog-card .dog-info h2{
-    color: #1db750;
-    font-weight: 400;
-    font-size: 1.8em;
-}
-
-.dog-card .about h3{
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: 6px;
-    color: rgb(118, 129, 151);
-    text-transform: uppercase;
-    margin-top: 0.9em;
-}
-.dog-card .dog-info .about .list-container {
-    margin-top: 1.5em;
-}
-.dog-card .dog-info .about .list-container  .list-item{
-    display: flex;
-    justify-content: space-between;
-    box-pack: justify;
-    margin-top: 0.6em;
-    margin-right: 1em;
-    color: rgb(72, 73, 74);
-}
-
-.apply-button{
-    margin-top: 3em;
-    width: 100%;
-  outline: none;
-  cursor: pointer;
-  background: #1db750;
+/* Image */
+.pet-details-image-wrap {
+  position: relative;
+  width: 460px;
+  min-width: 340px;
   border-radius: 20px;
-  padding: 18px;
-  color: white;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 18px;
-  opacity: 1;
-  pointer-events: all;
+  overflow: hidden;
+  flex-shrink: 0;
+  aspect-ratio: 4/3;
+  background: #e0e0e0;
 }
 
-.dog-description{
-    display: block;
-    width: 992px;
-    margin: 1em auto;
-    padding: 2em;
-    border-radius: 0.5em;
-    background-color: #fff;
-}
-.dog-description h2{
-    color: #1db750;
-    font-weight: 400;
-}
-.dog-description p{
-    margin-top: 1em ;
-    color: rgb(72, 73, 74);
+.pet-details-blur-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px) scale(1.1);
+  opacity: 0.5;
 }
 
-.buttons{
-    display: flex;
-    gap: 1.5em;
-    margin-top: 2em;
+.pet-details-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
-.buttons a {
+
+/* Info panel */
+.pet-details-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.pet-details-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1em;
+  margin-bottom: 0.4em;
+}
+
+.pet-details-name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pet-details-location {
+  color: #888;
+  font-size: 0.97rem;
+  margin: 0.2em 0 1em;
+}
+
+/* Tags */
+.pet-details-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+.pet-tag {
+  background: #e8f5e9;
+  color: #1db750;
+  border: 1.5px solid #c3e6cb;
+  border-radius: 999px;
+  padding: 0.25em 0.85em;
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+/* Attributes table */
+.pet-details-attributes {
+  background: #fff;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.5em;
+}
+
+.pet-attr-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7em 1.2em;
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.pet-attr-row:last-child {
+  border-bottom: none;
+}
+
+.pet-attr-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #aaa;
+}
+
+.pet-attr-value {
+  font-size: 0.92rem;
+  color: #333;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* Action buttons */
+.pet-details-actions {
+  display: flex;
+  gap: 0.8em;
+}
+
+.pet-edit-btn {
+  background: #f0faf3;
+  color: #1db750;
+  border: 1.5px solid #b2dfcc;
+  border-radius: 9px;
+  padding: 0.55em 1.4em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.18s;
+}
+
+.pet-edit-btn:hover {
+  background: #1db750;
+  color: #fff;
+  border-color: #1db750;
+}
+
+.pet-delete-btn {
+  background: #fff5f5;
+  color: #e74c3c;
+  border: 1.5px solid #fbb;
+  border-radius: 9px;
+  padding: 0.55em 1.4em;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  width: auto;
+}
+
+.pet-delete-btn:hover {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+
+/* Description */
+.pet-description-section {
+  max-width: 860px;
+  margin: 0 auto 2em;
+  padding: 1.8em 2em;
+  background: #fff;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 16px;
+}
+
+.pet-description-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.7em;
+}
+
+.pet-description-section p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.75;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .pet-details-hero {
+    flex-direction: column;
+  }
+  .pet-details-image-wrap {
     width: 100%;
-};
-
-.buttons .delete-btn{
-    background-color: red;
+    min-width: unset;
+  }
 }
