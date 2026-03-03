@@ -1,0 +1,258 @@
+.dashboard-page {
+  min-height: 100vh;
+  background: #f7f9f7;
+  padding-top: 72px;
+}
+
+/* Hero */
+.dashboard-hero {
+  background: linear-gradient(135deg, #106a2e 0%, #1db750 100%);
+  padding: 3em 3em 2.5em;
+  display: flex;
+  align-items: center;
+  gap: 1.8em;
+  flex-wrap: wrap;
+}
+
+.dashboard-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+
+.dashboard-hero-info {
+  flex: 1;
+}
+
+.dashboard-username {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.15em;
+}
+
+.dashboard-email {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.dashboard-stats {
+  display: flex;
+  gap: 1.2em;
+}
+
+.stat-box {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 12px;
+  padding: 0.9em 1.6em;
+  text-align: center;
+  min-width: 90px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Tabs */
+.dashboard-tabs {
+  display: flex;
+  gap: 0;
+  background: #fff;
+  border-bottom: 2px solid #efefef;
+  padding: 0 2.5em;
+}
+
+.dash-tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  padding: 1em 1.5em;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: auto;
+}
+
+.dash-tab:hover {
+  color: #1db750;
+}
+
+.dash-tab.active {
+  color: #1db750;
+  border-bottom-color: #1db750;
+}
+
+/* Content */
+.dashboard-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2em 2em 3em;
+}
+
+.dashboard-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5em;
+}
+
+.dashboard-section-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.dash-new-btn {
+  background: #1db750;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.5em 1.2em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.dash-new-btn:hover {
+  background: #17a045;
+}
+
+/* Empty state */
+.dashboard-empty {
+  text-align: center;
+  padding: 4em 2em;
+  color: #aaa;
+}
+
+.dashboard-empty span {
+  display: block;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.dashboard-empty p {
+  font-size: 1.05rem;
+  margin-bottom: 1.2em;
+}
+
+.dash-cta {
+  background: #1db750;
+  color: #fff;
+  padding: 0.7em 2em;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.dash-cta:hover {
+  background: #17a045;
+}
+
+/* Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.3em;
+}
+
+/* Card */
+.dash-card {
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1.5px solid #f0f0f0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.dash-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+}
+
+.dash-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.dash-card-body {
+  padding: 1em;
+}
+
+.dash-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.2em;
+}
+
+.dash-card-breed {
+  font-size: 0.88rem;
+  color: #1db750;
+  font-weight: 500;
+  margin: 0 0 0.4em;
+}
+
+.dash-card-meta {
+  font-size: 0.82rem;
+  color: #999;
+  display: flex;
+  gap: 0.4em;
+  margin: 0;
+}
+
+.dash-card-actions {
+  padding: 0.7em 1em;
+  border-top: 1px solid #f5f5f5;
+  display: flex;
+  gap: 0.6em;
+}
+
+.dash-edit-btn {
+  background: #f0faf3;
+  color: #1db750;
+  border: 1.5px solid #b2dfcc;
+  border-radius: 7px;
+  padding: 0.35em 1em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.18s;
+}
+
+.dash-edit-btn:hover {
+  background: #1db750;
+  color: #fff;
+  border-color: #1db750;
+}
