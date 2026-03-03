@@ -1,51 +1,34 @@
-import { createContext, useContext} from "react";
-
+import React, { createContext, useContext } from "react";
 import usePersistedState from "../hooks/usePersistedState";
 
+const AuthContext = createContext();
 
+export const AuthContextProvider = ({ children }) => {
+  const [authData, setAuthData] = usePersistedState("auth", {});
 
-export const AuthContext = createContext({
-    userId: '',
-    email: "",
-    accessToken: "",
-    isAuthenticated: false,
-    changeAuthState: (authState = {}) => null,
-    logout: () => null
-});
+  const changeAuthState = (data) => {
+    setAuthData(data);
+  };
 
-  
-export function AuthContextProvider(props){
-   const [authState, setAuthState] = usePersistedState('auth', {})
+  const clearAuthState = () => {
+    setAuthData({});
+  };
 
-  const changeAuthState = (state) => {
-    // localStorage.setItem('accessToken', state.accessToken) 
-    setAuthState(state)
-  }
+  return (
+    <AuthContext.Provider
+      value={{
+        isAuthenticated: !!authData?.accessToken,
+        username: authData?.username,
+        email: authData?.email,
+        userId: authData?._id,       // ← exposed for ownership checks
+        token: authData?.accessToken,
+        changeAuthState,
+        clearAuthState,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
-  const logout = () => {
-    setAuthState(null)
-  }
-
-
-  const contextData = {
-    userId: authState?._id,
-    email: authState?.email,
-    accessToken: authState?.accessToken,
-    isAuthenticated: !!authState?.email,
-    changeAuthState,
-    logout,
-
-  }
-
-
-    return (
-        <AuthContext.Provider value={contextData}>
-            {props.children}
-        </AuthContext.Provider>
-    )
-}
-
-export function useAuthContext(){
-  const authData = useContext(AuthContext);
-  return authData
-}
+export const useAuthContext = () => useContext(AuthContext);
