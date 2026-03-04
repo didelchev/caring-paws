@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faSlidersH, faXmark } from "@fortawesome/free-solid-svg-icons";
 import "./Filters.css";
 
 const SIZES = ["All", "Small", "Medium", "Large", "Giant"];
@@ -19,6 +21,14 @@ function matchAge(dogAge, filter) {
 
 export function applyFilters(dogs, filters) {
   return dogs.filter((dog) => {
+    const q = filters.query?.toLowerCase() || "";
+
+    const searchMatch =
+      !q ||
+      dog.name?.toLowerCase().includes(q) ||
+      dog.breed?.toLowerCase().includes(q) ||
+      dog.location?.toLowerCase().includes(q);
+
     const sizeMatch =
       filters.size === "All" ||
       dog.size?.toLowerCase().includes(filters.size.toLowerCase());
@@ -33,14 +43,16 @@ export function applyFilters(dogs, filters) {
       !filters.location ||
       dog.location?.toLowerCase().includes(filters.location.toLowerCase());
 
-    return sizeMatch && sexMatch && ageMatch && locationMatch;
+    return searchMatch && sizeMatch && sexMatch && ageMatch && locationMatch;
   });
 }
 
-export default function Filters({ filters, onChange }) {
+export default function Filters({ filters, onChange, totalCount, filteredCount }) {
+  const [expanded, setExpanded] = useState(false);
+
   const update = (key, value) => onChange({ ...filters, [key]: value });
 
-  const activeCount = [
+  const activeFilterCount = [
     filters.size !== "All",
     filters.sex !== "All",
     filters.age !== "All",
@@ -48,78 +60,110 @@ export default function Filters({ filters, onChange }) {
   ].filter(Boolean).length;
 
   const reset = () =>
-    onChange({ size: "All", sex: "All", age: "All", location: "" });
+    onChange({ query: filters.query || "", size: "All", sex: "All", age: "All", location: "" });
 
   return (
-    <div className="filters-bar">
-      <div className="filters-inner">
-        <span className="filters-label">Filter by:</span>
-
-        {/* Size */}
-        <div className="filter-group">
-          <span className="filter-group-label">Size</span>
-          <div className="filter-pills">
-            {SIZES.map((s) => (
-              <button
-                key={s}
-                className={`filter-pill ${filters.size === s ? "active" : ""}`}
-                onClick={() => update("size", s)}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Sex */}
-        <div className="filter-group">
-          <span className="filter-group-label">Sex</span>
-          <div className="filter-pills">
-            {SEXES.map((s) => (
-              <button
-                key={s}
-                className={`filter-pill ${filters.sex === s ? "active" : ""}`}
-                onClick={() => update("sex", s)}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Age */}
-        <div className="filter-group">
-          <span className="filter-group-label">Age</span>
-          <div className="filter-pills">
-            {AGES.map((a) => (
-              <button
-                key={a}
-                className={`filter-pill ${filters.age === a ? "active" : ""}`}
-                onClick={() => update("age", a)}
-              >
-                {a}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Location */}
-        <div className="filter-group">
-          <span className="filter-group-label">Location</span>
+    <div className="filters-wrap">
+      {/* Top bar: search + toggle */}
+      <div className="filters-topbar">
+        <div className="filters-search">
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="fsearch-icon" />
           <input
-            className="filter-location-input"
-            type="text"
-            placeholder="City..."
-            value={filters.location}
-            onChange={(e) => update("location", e.target.value)}
+            type="search"
+            className="filters-search-input"
+            placeholder="Search by name, breed or city…"
+            value={filters.query || ""}
+            onChange={(e) => update("query", e.target.value)}
           />
+          {filters.query && (
+            <button className="fsearch-clear" onClick={() => update("query", "")}>
+              <FontAwesomeIcon icon={faXmark} />
+            </button>
+          )}
         </div>
 
-        {activeCount > 0 && (
-          <button className="filter-reset" onClick={reset}>
-            Clear {activeCount} filter{activeCount > 1 ? "s" : ""}
-          </button>
-        )}
+        <button
+          className={`filters-toggle-btn ${expanded ? "open" : ""} ${activeFilterCount > 0 ? "has-active" : ""}`}
+          onClick={() => setExpanded((v) => !v)}
+        >
+          <FontAwesomeIcon icon={faSlidersH} />
+          <span>Filters</span>
+          {activeFilterCount > 0 && (
+            <span className="filters-badge">{activeFilterCount}</span>
+          )}
+        </button>
+
+        <span className="filters-count-label">
+          {filteredCount} of {totalCount} pets
+        </span>
+      </div>
+
+      {/* Expandable filter panel */}
+      <div className={`filters-panel ${expanded ? "filters-panel--open" : ""}`}>
+        <div className="filters-panel-inner">
+
+          <div className="filter-row">
+            <span className="filter-row-label">Size</span>
+            <div className="filter-pills">
+              {SIZES.map((s) => (
+                <button
+                  key={s}
+                  className={`filter-pill ${filters.size === s ? "active" : ""}`}
+                  onClick={() => update("size", s)}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-row">
+            <span className="filter-row-label">Sex</span>
+            <div className="filter-pills">
+              {SEXES.map((s) => (
+                <button
+                  key={s}
+                  className={`filter-pill ${filters.sex === s ? "active" : ""}`}
+                  onClick={() => update("sex", s)}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-row">
+            <span className="filter-row-label">Age</span>
+            <div className="filter-pills">
+              {AGES.map((a) => (
+                <button
+                  key={a}
+                  className={`filter-pill ${filters.age === a ? "active" : ""}`}
+                  onClick={() => update("age", a)}
+                >
+                  {a}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-row">
+            <span className="filter-row-label">Location</span>
+            <input
+              className="filter-location-input"
+              type="text"
+              placeholder="Any city…"
+              value={filters.location}
+              onChange={(e) => update("location", e.target.value)}
+            />
+          </div>
+
+          {activeFilterCount > 0 && (
+            <button className="filter-reset" onClick={reset}>
+              <FontAwesomeIcon icon={faXmark} /> Clear {activeFilterCount} filter{activeFilterCount > 1 ? "s" : ""}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
