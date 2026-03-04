@@ -3,15 +3,15 @@
 A web application dedicated to connecting adorable, adoptable dogs with loving homes. We strive to make the adoption process transparent, easy, and joyful for both the dogs and their new families.
 
 
-![Project Screenshot](client/public/home-page.png)
+![Project Screenshot](client/public/caring-paws-homepage.png)
 
 ---
 
 ##  Features
 
-* **🔍 Detailed Search & Filtering:** Users can easily find their perfect companion by searchin by breed, age, size and location.
-* **🐶 Dog Profiles:** Each dog has a dedicated profile with photos, a biography, and description.
-* **👤 User Authentication:** Secure sign-up and login for adopters and administrative accounts.
+* **Detailed Search & Filtering:** Users can easily find their perfect companion by searchin by breed, age, size and location.
+* **Dog Profiles:** Each dog has a dedicated profile with photos, a biography, and description.
+* **User Authentication:** Secure sign-up and login for adopters and administrative accounts.
 
 
 ---
