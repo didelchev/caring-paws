@@ -7,8 +7,10 @@ const dashboardController = Router();
 
 // GET /dashboard  — get user's listings + favorites
 dashboardController.get("/", async (req, res) => {
-  if (!req.user) return res.status(401).json({ message: "Unauthorized" });
-
+  if (!req.user){
+    return res.status(401).json({ message: "Unauthorized" });
+  } 
+    
   try {
     const [myListings, myFavorites] = await Promise.all([
       dogService.getByUser(req.user._id),

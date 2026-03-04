@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { getErrorMessage } from '../utils/errorUtils';
 
 export const authMiddleware = (req, res, next) => {
     const token = req.header('X-Authorization');
@@ -15,6 +16,6 @@ export const authMiddleware = (req, res, next) => {
 
         next();
     } catch (err) {
-        res.status(401).end();
+        res.status(401).json({message: getErrorMessage(err)})
     }
 }
