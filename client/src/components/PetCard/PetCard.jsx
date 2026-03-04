@@ -1,20 +1,36 @@
 import React from 'react'
-import { assets } from "../../assets/assets";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-
 import './PetCard.css'
 
-export default function PetCard(pet) {
+export default function PetCard({ img, name, age, breed, location, sex, size }) {
   return (
-    <div className='card-container'>
-        <img src={pet.img} alt={pet.name} />
-        <div className="pet-details">
-            <h3>{pet.name}</h3>
-            <p>Age: {pet.age}</p>
-            <p>Breed: {pet.breed}</p>
-            <p><span><FontAwesomeIcon icon={faLocationDot}/></span>Location: {pet.location}</p>
+    <div className='pet-card'>
+
+      {/* Image */}
+      <div className='pet-card-img-wrap'>
+        <img src={img} alt={name} className='pet-card-img' />
+        {sex && <span className='pet-card-badge'>{sex}</span>}
+      </div>
+
+      {/* Body */}
+      <div className='pet-card-body'>
+        <div className='pet-card-top'>
+          <h3 className='pet-card-name'>{name}</h3>
+          {age && <span className='pet-card-age'>{age}</span>}
         </div>
+
+        <p className='pet-card-breed'>{breed}</p>
+
+        <div className='pet-card-footer'>
+          <span className='pet-card-location'>
+            <FontAwesomeIcon icon={faLocationDot} />
+            {location}
+          </span>
+          {size && <span className='pet-card-size'>{size}</span>}
+        </div>
+      </div>
+
     </div>
   )
 }
