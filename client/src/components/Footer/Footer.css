@@ -1,53 +1,91 @@
 .footer {
-    background-color: #333; /* Dark background */
-    color: white;
-    padding: 40px 0;
-    text-align: left;
+  background: #0f1f14;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5em 2em 0;
 }
 
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    max-width: 1200px;
-    margin: 0 auto;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3em;
+  padding-bottom: 4em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.footer-section {
-    flex: 1;
-    min-width: 200px;
-    margin: 20px;
+/* Brand col */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 1em;
 }
 
-.footer-section h3 {
-    border-bottom: 2px solid #006400; /* Green underline */
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+.footer-logo svg {
+  color: #1db750;
+  font-size: 1.1em;
 }
 
-.footer-section p, .footer-section ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.footer-brand-desc {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0;
+  max-width: 260px;
 }
 
-.footer-section a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
+/* Link cols */
+.footer-col h4 {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 1.2em;
 }
 
-.footer-section a:hover {
-    text-decoration: underline;
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
 }
 
+.footer-col ul li a,
+.footer-col ul li span {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.footer-col ul li a:hover {
+  color: #1db750;
+}
+
+/* Bottom bar */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: center;
-    padding: 10px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.4em 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.25);
 }
 
-.footer-bottom p {
-    margin: 0;
+@media (max-width: 860px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
