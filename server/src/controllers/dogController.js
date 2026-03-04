@@ -7,7 +7,7 @@ const dogController = Router();
 dogController.get("/", async (req, res) => {
     try {
         const dogs = await dogService.getAll();
-        return res.status(200).json(dogs);  // plain array, not wrapped in {status, data}
+        return res.status(200).json(dogs);
     } catch (error) {
         return res.status(400).json({ message: getErrorMessage(error) });
     }

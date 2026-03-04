@@ -60,13 +60,13 @@ export default function Dashboard() {
           className={`dash-tab ${activeTab === "listings" ? "active" : ""}`}
           onClick={() => setActiveTab("listings")}
         >
-          🐾 My Listings
+          My Listings
         </button>
         <button
           className={`dash-tab ${activeTab === "favorites" ? "active" : ""}`}
           onClick={() => setActiveTab("favorites")}
         >
-          ♥ Saved Pets
+          Saved Pets
         </button>
       </div>
 
@@ -80,7 +80,6 @@ export default function Dashboard() {
             </div>
             {listings.length === 0 ? (
               <div className="dashboard-empty">
-                <span>🐶</span>
                 <p>You haven't listed any pets yet.</p>
                 <Link to="/post-pet" className="dash-cta">List a Pet</Link>
               </div>

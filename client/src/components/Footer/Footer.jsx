@@ -52,7 +52,6 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Caring Paws. All rights reserved.</p>
-        <p>#AdoptDontShop</p>
       </div>
     </footer>
   );

@@ -2,13 +2,12 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 600px;
+  min-height: 500px;
   display: flex;
   align-items: center;
   overflow: hidden;
 }
 
-/* Background image */
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -23,28 +22,25 @@
   transform: scale(1.0);
 }
 
-/* Dark gradient overlay — left heavy so text is readable */
 .hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(6, 40, 16, 0.82) 0%,
+    rgba(6, 40, 16, 0.85) 0%,
     rgba(6, 40, 16, 0.55) 55%,
-    rgba(6, 40, 16, 0.15) 100%
+    rgba(6, 40, 16, 0.2) 100%
   );
 }
 
-/* Content */
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 660px;
   padding: 0 5em;
-  padding-top: 72px; /* clear navbar */
+  padding-top: 72px;
 }
 
-/* Tag pill */
 .hero-tag {
   display: inline-block;
   background: rgba(29, 183, 80, 0.22);
@@ -59,9 +55,8 @@
   margin-bottom: 1.4em;
 }
 
-/* Title */
 .hero-title {
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
   font-weight: 900;
   color: #fff;
   line-height: 1.1;
@@ -73,16 +68,14 @@
   color: #1db750;
 }
 
-/* Subtitle */
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
   color: rgba(255, 255, 255, 0.72);
   line-height: 1.75;
   margin: 0 0 2.2em;
   max-width: 500px;
 }
 
-/* CTA buttons */
 .hero-actions {
   display: flex;
   gap: 1em;
@@ -114,7 +107,6 @@
 
 .hero-btn--primary:hover {
   background: #17a045;
-  box-shadow: 0 8px 28px rgba(29, 183, 80, 0.5);
 }
 
 .hero-btn--secondary {
@@ -128,11 +120,11 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Stats row */
 .hero-stats {
   display: flex;
   align-items: center;
   gap: 1.5em;
+  flex-wrap: wrap;
 }
 
 .hero-stat {
@@ -161,7 +153,6 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Scroll hint */
 .hero-scroll-hint {
   position: absolute;
   bottom: 2.2em;
@@ -184,4 +175,42 @@
 @keyframes scrollBounce {
   0%, 100% { transform: rotate(90deg) translateX(0); }
   50%       { transform: rotate(90deg) translateX(5px); }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .hero {
+    align-items: flex-end;
+    padding-bottom: 4em;
+    min-height: 100svh;
+  }
+
+  .hero-content {
+    padding: 0 1.5em;
+    padding-top: 72px;
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-stat-divider { display: none; }
+
+  .hero-stats {
+    gap: 1.2em;
+  }
+
+  .hero-scroll-hint {
+    display: none;
+  }
 }

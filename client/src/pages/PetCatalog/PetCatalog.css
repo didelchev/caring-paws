@@ -13,7 +13,7 @@ html {
   margin: 1.8em auto 2em;
   padding: 0 2em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1.5em;
 }
 
@@ -31,6 +31,20 @@ html {
   margin-bottom: 0.4em;
 }
 
-.catalog-empty p {
-  font-size: 1rem;
+.catalog-empty p { font-size: 1rem; }
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .catalog-page {
+    padding: 0 1em;
+    margin-top: 1.2em;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+}
+
+@media (max-width: 400px) {
+  .catalog-page {
+    grid-template-columns: 1fr;
+  }
 }

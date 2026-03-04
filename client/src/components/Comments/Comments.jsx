@@ -55,7 +55,7 @@ export default function Comments({ dogId }) {
   return (
     <section className="comments-section">
       <h3 className="comments-title">
-        <span className="comments-icon">💬</span>
+        <span className="comments-icon"></span>
         Community Reviews
         <span className="comments-count">{comments.length}</span>
       </h3>
@@ -93,7 +93,6 @@ export default function Comments({ dogId }) {
         <div className="comments-loading">Loading reviews...</div>
       ) : comments.length === 0 ? (
         <div className="comments-empty">
-          <span>🐾</span>
           <p>No reviews yet. Be the first to share!</p>
         </div>
       ) : (

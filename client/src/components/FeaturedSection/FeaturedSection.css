@@ -1,6 +1,6 @@
 .featured-section {
   background: #fff;
-  padding: 6em 2em;
+  padding: 5em 2em;
   border-top: 1.5px solid #f0f0f0;
 }
 
@@ -9,7 +9,6 @@
   margin: 0 auto;
 }
 
-/* Header row */
 .featured-header {
   display: flex;
   align-items: flex-end;
@@ -31,18 +30,14 @@
   transition: gap 0.18s;
 }
 
-.featured-see-all:hover {
-  gap: 0.8em;
-}
+.featured-see-all:hover { gap: 0.8em; }
 
-/* Grid */
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5em;
 }
 
-/* Card */
 .featured-card {
   display: block;
   background: #fff;
@@ -59,7 +54,6 @@
   border-color: #d0ead5;
 }
 
-/* Image */
 .featured-card-img-wrap {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -74,9 +68,7 @@
   transition: transform 0.4s ease;
 }
 
-.featured-card:hover .featured-card-img {
-  transform: scale(1.05);
-}
+.featured-card:hover .featured-card-img { transform: scale(1.05); }
 
 .featured-card-sex-badge {
   position: absolute;
@@ -92,7 +84,6 @@
   text-transform: capitalize;
 }
 
-/* Body */
 .featured-card-body {
   padding: 1.3em 1.4em 1.5em;
 }
@@ -135,17 +126,25 @@
   margin: 0;
 }
 
-.featured-card-location svg {
-  color: #ccc;
-  font-size: 0.85em;
+.featured-card-location svg { color: #ccc; font-size: 0.85em; }
+
+/* ── Mobile ── */
+@media (max-width: 900px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 560px) {
+  .featured-section {
+    padding: 3.5em 1.2em;
+  }
   .featured-grid {
     grid-template-columns: 1fr;
   }
   .featured-header {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 1.8em;
   }
 }

@@ -31,22 +31,6 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="hero-stats">
-          <div className="hero-stat">
-            <span className="hero-stat-number">500+</span>
-            <span className="hero-stat-label">Dogs listed</span>
-          </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat">
-            <span className="hero-stat-number">1,200+</span>
-            <span className="hero-stat-label">Happy adoptions</span>
-          </div>
-          <div className="hero-stat-divider" />
-          <div className="hero-stat">
-            <span className="hero-stat-number">Free</span>
-            <span className="hero-stat-label">To list & adopt</span>
-          </div>
-        </div>
       </div>
     </section>
   );

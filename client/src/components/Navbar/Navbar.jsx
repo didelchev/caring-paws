@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
 
 function Navbar() {
   const { isAuthenticated } = useAuthContext();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -16,14 +19,29 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  // Close menu on route change
+  useEffect(() => { setMenuOpen(false); }, [location]);
+
+  const solid = scrolled || !isHome || menuOpen;
+
   return (
-    <nav className={`navbar ${scrolled || !isHome ? "navbar-solid" : ""}`}>
+    <nav className={`navbar ${solid ? "navbar-solid" : ""}`}>
       <Link to="/" className="navbar-logo">
         <img src={assets.logo} alt="logo" className="logo-img" />
         <span className="company-name">Caring Paws</span>
       </Link>
 
-      <ul className="navbar-menu">
+      {/* Hamburger */}
+      <button
+        className="navbar-hamburger"
+        onClick={() => setMenuOpen(v => !v)}
+        aria-label="Toggle menu"
+      >
+        <FontAwesomeIcon icon={menuOpen ? faXmark : faBars} />
+      </button>
+
+      {/* Menu */}
+      <ul className={`navbar-menu ${menuOpen ? "navbar-menu--open" : ""}`}>
         <li>
           <Link to="/" className={location.pathname === "/" ? "nav-active" : ""}>
             Home
@@ -37,30 +55,18 @@ function Navbar() {
 
         {isAuthenticated ? (
           <>
-            <li>
-              <Link to="/post-pet">List a Pet</Link>
-            </li>
+            <li><Link to="/post-pet">List a Pet</Link></li>
             <li>
               <Link to="/dashboard" className={location.pathname === "/dashboard" ? "nav-active" : ""}>
                 Dashboard
               </Link>
             </li>
-            <li>
-              <Link to="/logout" className="nav-logout">
-                Logout
-              </Link>
-            </li>
+            <li><Link to="/logout" className="nav-logout">Logout</Link></li>
           </>
         ) : (
           <>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register" className="nav-register-btn">
-                Register
-              </Link>
-            </li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/register" className="nav-register-btn">Register</Link></li>
           </>
         )}
       </ul>
