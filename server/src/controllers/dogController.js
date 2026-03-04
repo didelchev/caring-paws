@@ -2,68 +2,57 @@ import { Router } from "express";
 import dogService from "../services/dogService.js";
 import { getErrorMessage } from "../utils/errorUtils.js";
 
-
 const dogController = Router();
 
-
 dogController.get("/", async (req, res) => {
-
     try {
-        const dogs = await dogService.getAll()
-
-       return res.status(200).json({status: "success", data: dogs})
-
+        const dogs = await dogService.getAll();
+        return res.status(200).json(dogs);  // plain array, not wrapped in {status, data}
     } catch (error) {
-        return res.status(400).json({message: getErrorMessage(error)})
+        return res.status(400).json({ message: getErrorMessage(error) });
     }
-
-})
+});
 
 dogController.get('/:dogId', async (req, res) => {
-    const dog  = await dogService.getOne(req.params.dogId)
-
-    res.json(dog)
-})
+    try {
+        const dog = await dogService.getOne(req.params.dogId);
+        res.json(dog);
+    } catch (error) {
+        res.status(400).json({ message: getErrorMessage(error) });
+    }
+});
 
 dogController.post("/", async (req, res) => {
     const userId = req.user._id;
     const dogData = req.body;
 
-    console.log(userId, dogData)
-
     try {
-       const dog =  await dogService.create(dogData, userId)
-        res.json(dog)
+        const dog = await dogService.create(dogData, userId);
+        res.json(dog);
     } catch (err) {
-        res.status(400).json({ message: getErrorMessage(err)})
+        res.status(400).json({ message: getErrorMessage(err) });
     }
-})
+});
 
 dogController.delete("/:dogId", async (req, res) => {
-    try{
-        await dogService.delete(req.params.dogId)
-        
-        res.status(204).end()
+    try {
+        await dogService.delete(req.params.dogId);
+        res.status(204).end();
+    } catch (err) {
+        res.status(400).json({ message: getErrorMessage(err) });
     }
-    catch(err){
-        res.status(400).json({message: getErrorMessage(err)})
-    }
-})
+});
 
-dogController.put("/:dogId", async(req, res) => {
+dogController.put("/:dogId", async (req, res) => {
     const dogData = req.body;
-    const dogId = req.params.dogId
-
+    const dogId = req.params.dogId;
 
     try {
-        const updatedDog = await dogService.update(dogId, dogData)
-
-        res.json(updatedDog)
+        const updatedDog = await dogService.update(dogId, dogData);
+        res.json(updatedDog);
     } catch (err) {
-        res.status(400).json({ message: getErrorMessage(err) })
+        res.status(400).json({ message: getErrorMessage(err) });
     }
-})
+});
 
-
-
-export default dogController
+export default dogController;
