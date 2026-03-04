@@ -1,17 +1,6 @@
 import * as request from "./requester";
 
-
-// const BASE_URL = "http://localhost:5000/catalog"
 const BASE_URL = "https://carring-paws.onrender.com/petcatalog"
-
-export const getAll =  async () => { 
-    const result = await request.get(BASE_URL);
-     
-    const dogData = Object.values(result);
-
-    return dogData
-}
- 
 
 export const getFeatured = async () => {
     const urlSearchParams = new URLSearchParams({
@@ -40,6 +29,7 @@ export const getSearchForDog = async (dogData) => {
 }
 
 
+export const getAll = () => request.get(BASE_URL)
 
 export const getOne =  (id) => request.get(`${BASE_URL}/${id}`)
 
