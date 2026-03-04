@@ -1,42 +1,53 @@
 import React from "react";
-import "./Header.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { assets } from "../../assets/assets";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faHouse, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import "./Header.css";
 
 export default function Header() {
   return (
-    <div className="header-container">
-      <div className="header">
-        <h1>Find your furever friend</h1>
-        <div className="btn-wrapper">
-          <Link to="/petcatalog">
-            <div className="act-button">
-              <img src={assets.search} />
-              <div className="button-text">
-                <h2>I want to adopt a pet</h2>
-                <p>Search the available pets listed on Caring Paws</p>
-              </div>
-            </div>
+    <section className="hero">
+      <div className="hero-bg" />
+      <div className="hero-overlay" />
+
+      <div className="hero-content">
+        <h1 className="hero-title">
+          Find your<br />
+          <span className="hero-title-accent">furever</span> friend
+        </h1>
+        <p className="hero-subtitle">
+          Thousands of dogs are looking for a loving home. Browse listings, save your
+          favourites, and connect with rehomers — all in one place.
+        </p>
+
+        <div className="hero-actions">
+          <Link to="/petcatalog" className="hero-btn hero-btn--primary">
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            Browse dogs for adoption
+          </Link>
+          <Link to="/post-pet" className="hero-btn hero-btn--secondary">
+            <FontAwesomeIcon icon={faHouse} />
+            Rehome my pet
           </Link>
         </div>
 
-        <div className="btn-wrapper">
-          <Link to="/post-pet">
-            <div className="act-button">
-              <img src={assets.home} />
-              <div className="button-text">
-                <h2>I need to rehome my pet</h2>
-                <p>
-                  Start the process. It's free to list your pet on Caring Paws
-                </p>
-              </div>
-            </div>
-          </Link>
+        <div className="hero-stats">
+          <div className="hero-stat">
+            <span className="hero-stat-number">500+</span>
+            <span className="hero-stat-label">Dogs listed</span>
+          </div>
+          <div className="hero-stat-divider" />
+          <div className="hero-stat">
+            <span className="hero-stat-number">1,200+</span>
+            <span className="hero-stat-label">Happy adoptions</span>
+          </div>
+          <div className="hero-stat-divider" />
+          <div className="hero-stat">
+            <span className="hero-stat-number">Free</span>
+            <span className="hero-stat-label">To list & adopt</span>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
