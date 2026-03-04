@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { getErrorMessage } from '../utils/errorUtils';
+import { getErrorMessage } from '../utils/errorUtils.js';
 
 export const authMiddleware = (req, res, next) => {
     const token = req.header('X-Authorization');
