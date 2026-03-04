@@ -4,7 +4,6 @@ import { getErrorMessage } from "../utils/errorUtils.js";
 
 const commentController = Router({ mergeParams: true });
 
-// GET /petcatalog/:dogId/comments
 commentController.get("/", async (req, res) => {
   try {
     const comments = await commentService.getByDog(req.params.dogId);
@@ -14,7 +13,6 @@ commentController.get("/", async (req, res) => {
   }
 });
 
-// POST /petcatalog/:dogId/comments
 commentController.post("/", async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
 
@@ -31,7 +29,6 @@ commentController.post("/", async (req, res) => {
   }
 });
 
-// DELETE /petcatalog/:dogId/comments/:commentId
 commentController.delete("/:commentId", async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
 

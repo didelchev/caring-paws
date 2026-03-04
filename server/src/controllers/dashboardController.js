@@ -5,7 +5,6 @@ import { getErrorMessage } from "../utils/errorUtils.js";
 
 const dashboardController = Router();
 
-// GET /dashboard  — get user's listings + favorites
 dashboardController.get("/", async (req, res) => {
   if (!req.user){
     return res.status(401).json({ message: "Unauthorized" });
@@ -17,7 +16,6 @@ dashboardController.get("/", async (req, res) => {
       favoriteService.getByUser(req.user._id),
     ]);
 
-    // Flatten favorites so the dog data is at the top level
     const favoriteDogs = myFavorites
       .filter((f) => f.dogId)
       .map((f) => f.dogId);

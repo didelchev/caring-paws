@@ -4,7 +4,6 @@ import { getErrorMessage } from "../utils/errorUtils.js";
 
 const favoriteController = Router({ mergeParams: true });
 
-// POST /petcatalog/:dogId/favorite  — toggle favorite
 favoriteController.post("/", async (req, res) => {
   if (!req.user) return res.status(401).json({ message: "Unauthorized" });
 
@@ -16,7 +15,6 @@ favoriteController.post("/", async (req, res) => {
   }
 });
 
-// GET /petcatalog/:dogId/favorite  — check if current user favorited this dog
 favoriteController.get("/", async (req, res) => {
   if (!req.user) return res.json({ favorited: false });
 

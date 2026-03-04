@@ -10,7 +10,7 @@ userController.post('/register', async (req, res) => {
 
     try {
         const result = await userService.register(email,username, password)
-        res.json(result);
+        res.status(200).json(result);
         
     } catch (err) {
         res.status(400).json({message: getErrorMessage(err)})
@@ -25,7 +25,7 @@ userController.post('/login', async (req, res) => {
     try {
         const result = await userService.login(email, password);
 
-        res.json(result);
+        res.status(200).json(result);
         
     } catch (err) {
         res.status(400).json({ message: getErrorMessage(err) })
