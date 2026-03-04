@@ -7,9 +7,16 @@ const dogController = Router();
 
 
 dogController.get("/", async (req, res) => {
-    const dogs = await dogService.getAll()
 
-    res.json(dogs)
+    try {
+        const dogs = await dogService.getAll()
+
+       return res.status(200).json({status: "success", data: dogs})
+
+    } catch (error) {
+        return res.status(400).json({message: getErrorMessage(error)})
+    }
+
 })
 
 dogController.get('/:dogId', async (req, res) => {

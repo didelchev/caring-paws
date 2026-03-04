@@ -1,3 +1,4 @@
+import { useAuthContext } from '../contexts/AuthContext';
 import * as request from './requester';
 
 // const BASE_URL = "http://localhost:3030/users"
@@ -19,7 +20,9 @@ export const register = async (username,email,password) => {
 }
 
 export const logout =  () => {
-  localStorage.removeItem('auth')
+  const { clearAuthState } = useAuthContext();
+
+  return clearAuthState({});
 
 }
 

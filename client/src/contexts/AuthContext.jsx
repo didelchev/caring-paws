@@ -14,16 +14,21 @@ export const AuthContextProvider = ({ children }) => {
     setAuthData({});
   };
 
+  const logout = () => {
+    setAuthData({})
+  }
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated: !!authData?.accessToken,
         username: authData?.username,
         email: authData?.email,
-        userId: authData?._id,       // ← exposed for ownership checks
+        userId: authData?._id,     
         token: authData?.accessToken,
         changeAuthState,
         clearAuthState,
+        logout
+        
       }}
     >
       {children}
