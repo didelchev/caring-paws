@@ -16,7 +16,7 @@ A web application dedicated to connecting adorable, adoptable dogs with loving h
 
 ---
 
-## ⚙️ Technologies Used
+##  Technologies Used
 
 This project is built using the **MERN stack** (MongoDB, Express.js, React, Node.js), leveraging cloud hosting services for deployment.
 
