@@ -66,7 +66,6 @@
   100% { transform: rotate(360deg); }
 }
 
-/* ── Cold start message ── */
 .loading-message {
   max-width: 320px;
   text-align: center;
@@ -116,5 +115,5 @@
   0%   { width: 0%; }
   60%  { width: 75%; }
   90%  { width: 92%; }
-  100% { width: 96%; } /* never quite reaches 100% — server might still be starting */
+  100% { width: 96%; }
 }

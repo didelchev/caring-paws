@@ -148,3 +148,52 @@
     margin-bottom: 1.8em;
   }
 }
+
+/* ── Skeleton loading cards ── */
+.featured-card--skeleton {
+  pointer-events: none;
+}
+
+.skel {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 8px;
+}
+
+.skel-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0;
+}
+
+.skel-title {
+  height: 18px;
+  width: 55%;
+  margin: 1.1em 1.4em 0.5em;
+}
+
+.skel-breed {
+  height: 13px;
+  width: 40%;
+  margin: 0 1.4em 0.8em;
+}
+
+.skel-location {
+  height: 12px;
+  width: 50%;
+  margin: 0.6em 1.4em 1.2em;
+}
+
+.featured-empty {
+  grid-column: 1 / -1;
+  color: #bbb;
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 3em 0;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
